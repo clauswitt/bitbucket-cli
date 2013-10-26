@@ -1,24 +1,36 @@
 # Bitbucket::Cli
 
-TODO: Write a gem description
+This gem is a plugin to git. Install it and have access to the bitbucket api directly from the git command.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'bitbucket-cli'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
+Simple install:
 
     $ gem install bitbucket-cli
 
 ## Usage
 
-TODO: Write usage instructions here
+Currently only repository creation is supported (since this was what I needed).
+
+    $ git bb account username password
+
+This command stores your username and password in a clear text file called .gitbb in your home folder. (Yes, this is NOT secure).
+
+    $ git bb repository create
+
+Creates a repository named after the current directory
+
+    $ git bb repository create repo-name
+
+Creates a repository called "repo-name"
+
+    $ git bb repository create -p
+
+Creates a private repository
+
+    $ git bb repository create --owner teamname
+
+Creates a repository for the team "teamname" (you need to be member of that team off course)
 
 ## Contributing
 
