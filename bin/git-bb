@@ -3,5 +3,5 @@ require 'rubygems'
 require 'daemons'
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require 'bitbucket/cli/command'
-Bitbucket::Cli::Command.new.run
+Bitbucket::Cli::Command.start(ARGV)
 
