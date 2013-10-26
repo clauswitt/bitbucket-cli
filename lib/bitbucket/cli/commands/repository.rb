@@ -25,7 +25,7 @@ module Bitbucket
           repo = bitbucket.repos.create(repo_options(name, options))
           puts repo
           if options[:skip_remote].nil?
-            puts 'set remote to the create bitbucket repo'
+            `git remote add origin git@bitbucket.org:#{repo['owner']}/#{repo['name']}.git`
           end
         end
 
