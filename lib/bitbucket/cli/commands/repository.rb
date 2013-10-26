@@ -23,7 +23,6 @@ module Bitbucket
           name = File.basename(Dir.getwd) if name == ''
           bitbucket = BitBucket.new({:login=>a[:name], :password=>a[:password]})
           repo = bitbucket.repos.create(repo_options(name, options))
-          puts repo
           if options[:skip_remote].nil?
             `git remote add origin git@bitbucket.org:#{repo['owner']}/#{repo['name']}.git`
           end
@@ -31,7 +30,6 @@ module Bitbucket
 
         no_commands do
           def account name
-            puts "Getting account: #{name}"
             Bitbucket::Cli::Config.new.get_account name
           end
 
